@@ -1,0 +1,14 @@
+# Only sources and manifests go into the build context.
+**/node_modules
+**/dist
+**/coverage
+**/*.tsbuildinfo
+e2e/test-results
+e2e/playwright-report
+.git
+.github
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log

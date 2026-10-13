@@ -1,0 +1,24 @@
+# Production-like local run: docker compose up --build, then open http://localhost:3000
+services:
+  image-service:
+    build: .
+    image: image-service:local
+    ports:
+      - '${HOST_PORT:-3000}:3000'
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+    # Hardening: immutable filesystem, no Linux capabilities, no privilege escalation.
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    init: true
+    # Headroom for CACHE_MAX_BYTES (128 MB) plus PROCESSING_CONCURRENCY decodes (~160 MB each at 40 MP).
+    mem_limit: 1g
+    restart: unless-stopped
