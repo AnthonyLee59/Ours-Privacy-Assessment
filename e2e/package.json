@@ -1,0 +1,15 @@
+{
+  "name": "@image-service/e2e",
+  "version": "0.1.0",
+  "description": "Browser end-to-end tests: built UI + real API, hermetic upstream",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "tsx": "^4.23.15"
+  }
+}
