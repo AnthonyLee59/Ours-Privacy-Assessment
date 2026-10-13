@@ -1,0 +1,12 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'e2e'
+
+# Supply-chain policy: dependency install scripts are denied unless listed here.
+# esbuild (via tsx/vite) ships its binary as an optional platform package, so its
+# postinstall check is not needed. sharp likewise uses prebuilt @img/* packages.
+# @scarf/scarf (via swagger-ui-dist) is install-time telemetry that phones home; denied.
+allowBuilds:
+  esbuild: false
+  '@scarf/scarf': false
