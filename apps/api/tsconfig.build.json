@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    // Resolve workspace packages to their built output, not their TS source.
+    "customConditions": []
+  },
+  "include": ["src"]
+}
