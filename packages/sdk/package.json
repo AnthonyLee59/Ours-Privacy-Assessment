@@ -1,0 +1,25 @@
+{
+  "name": "@image-service/sdk",
+  "version": "0.1.0",
+  "description": "Typed client for the image processing API: URL builder with client-side validation and typed errors",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@image-service/contract": "workspace:*"
+  }
+}
